@@ -27,6 +27,8 @@ import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
 
 public class panelPelicula {
+	
+	//comentario
 
 	private JFrame frame = new JFrame();
 	JPanel panel_3AbajoDetalle = new JPanel();
