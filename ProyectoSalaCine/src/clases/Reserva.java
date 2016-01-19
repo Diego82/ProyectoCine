@@ -1,12 +1,7 @@
 package clases;
 
-import java.awt.Color;
-import java.awt.Font;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JRadioButton;
-
 import salacine.panelPelicula;
 
 public class Reserva {
@@ -109,6 +104,6 @@ public class Reserva {
 	@Override
 	public String toString() {
 		return "Pase [id_pase=" + id_pase + ", fecha=" + fecha + ", hora=" + hora + ", nombre_sala=" + nombre_sala
-				+ ", fila=" + fila + ", columna=" + columna + ", reserva=" + reserva + "]";
+				+ ", fila=" + fila + ", columna=" + columna + ", reserva=" + reserva + "]\n";
 	}	
 }
