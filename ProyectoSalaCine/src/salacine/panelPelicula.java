@@ -29,8 +29,7 @@ import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
 
 public class panelPelicula {
-/**/
-	String hola="";
+
 	private JFrame frame = new JFrame();
 	JPanel panel_3AbajoDetalle = new JPanel();
 	JPanel panel_2ArribaDetalle = new JPanel();
