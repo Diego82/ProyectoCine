@@ -22,9 +22,12 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 
 
 public class InicioCine {
@@ -38,12 +41,6 @@ public class InicioCine {
 		
 		System.out.println("Arrancando hilos");
 		hilo1.start();
-		try {
-			Thread.sleep(200);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		hilo2.start();
 		System.out.println("Hilos arrancados");
 		
@@ -84,47 +81,15 @@ class ListasCine{
 	ArrayList<String> horas= new ArrayList<String>();
 	public ListasCine() {
 		
+		crearSalaPrincipal(listaReservas1);
+		crearSalaPrincipal(listaReservas2);
+		crearSalaPrincipal(listaReservas3);
+		crearSalaPrincipal(listaReservas4);
+		crearSalaPrincipal(listaReservas5);
+		
 	}
 	
-	public List<Reserva> getListaReservas1() {
-		return listaReservas1;
-	}
-
-	public void setListaReservas1(List<Reserva> listaReservas1) {
-		this.listaReservas1 = listaReservas1;
-	}
-
-	public List<Reserva> getListaReservas2() {
-		return listaReservas2;
-	}
-
-	public void setListaReservas2(List<Reserva> listaReservas2) {
-		this.listaReservas2 = listaReservas2;
-	}
-
-	public List<Reserva> getListaReservas3() {
-		return listaReservas3;
-	}
-
-	public void setListaReservas3(List<Reserva> listaReservas3) {
-		this.listaReservas3 = listaReservas3;
-	}
-
-	public List<Reserva> getListaReservas4() {
-		return listaReservas4;
-	}
-
-	public void setListaReservas4(List<Reserva> listaReservas4) {
-		this.listaReservas4 = listaReservas4;
-	}
-
-	public List<Reserva> getListaReservas5() {
-		return listaReservas5;
-	}
-
-	public void setListaReservas5(List<Reserva> listaReservas5) {
-		this.listaReservas5 = listaReservas5;
-	}
+	
 
 	
 	public void pintarAsiento(List <Reserva> listaAux, int i){
@@ -156,42 +121,34 @@ class ListasCine{
 	}
 	
 	
-			// crear salas
-			public void crearSalaPrincipal(Reserva sillonAux) {
-				
-								System.out.println("hola");
-								if (sillonAux.isReserva()) {
-									System.out.println("PINTA");
-									sillonAux.getBoton().setIcon(
-											new ImageIcon(InicioCine.class.getResource("/imagenesAsientos/ocupado16.png")));
-									sillonAux.setReserva(false);
-								} else {
-									System.out.println("PINTA");
-									sillonAux.getBoton().setIcon(
-											new ImageIcon(InicioCine.class.getResource("/imagenesAsientos/libre16.png")));
-									sillonAux.setReserva(true);
-								}
-								System.out.println(listaReservas1);
-						
-				
-			}
 			
 			
 			
 			//PINTAR SALA
-				public void pintarSalaPrincipal(List<Reserva> listaSillonFinal) {
-					panel_3AbajoDetalle.removeAll();
-					for (int i = 0; i < listaSillonFinal.size(); i++) {
+				public void crearSalaPrincipal(List<Reserva> listaAux) {
+					for (int i = 0; i < 40; i++) {
+						//Reserva sillon = new Reserva(1,i, "1", "1", "1", 0, 1, true);
+						Reserva sillon = crearSillon(i);
+						listaAux.add(sillon);
+						int posicion=i;
 						
-					Reserva sillonAux = listaSillonFinal.get(i);
-					
-					panel_3AbajoDetalle.add(sillonAux.getBoton());
-					if (i == 3 || i == 11 || i == 19 || i == 27 || i == 35) {
-						JLabel label = new JLabel("");
-						panel_3AbajoDetalle.add(label);
-					}
-					
-					
+						
+						sillon.getBoton().addActionListener(new ActionListener() {
+							@Override
+							public void actionPerformed(ActionEvent arg0) {
+								System.out.println("Tamaño lista aux "+listaAux.size());
+								//hay que llamar a una funcion con el objeto listas
+								System.out.println("Posicion = "+posicion);
+								pintarAsiento(listaAux,posicion);
+								//listas.pintarAsiento(sillonAux);
+								
+								System.out.println(listaAux);
+								
+								
+								
+							}
+						});
+						
 					}
 					
 					
@@ -257,6 +214,7 @@ class ListasCine{
 class InicioCineVentanas extends Thread{
 
 	static ListasCine listas;
+	Timer timer;
 	private JFrame frame = new JFrame();
 	JPanel panel_3AbajoDetalle = new JPanel();
 	JPanel panel_2ArribaDetalle = new JPanel();
@@ -382,7 +340,7 @@ class InicioCineVentanas extends Thread{
 		
 				crearHoras();
 				
-				if (listas.listaReservas1.size()==0){
+				/*if (listas.listaReservas1.size()==0){
 				System.out.println("Tamaño de la lista antes de llamar a crear sala "+listas.listaReservas1.size());
 				crearSala(listas.listaReservas1);
 				crearSala(listas.listaReservas2);
@@ -390,8 +348,11 @@ class InicioCineVentanas extends Thread{
 				crearSala(listas.listaReservas4);
 				crearSala(listas.listaReservas5);
 				}else System.out.println("Ya se han creado las listas");
-				System.out.println("Tamaño de la lista despues de llamar a crear sala "+listas.listaReservas1.size());
+				System.out.println("Tamaño de la lista despues de llamar a crear sala "+listas.listaReservas1.size());*/
 		
+		
+			
+
 		
 		
 		panel.setLayout(gl_panel);
@@ -443,61 +404,7 @@ class InicioCineVentanas extends Thread{
 	}
 	
 
-
 	
-	
-	// crear salas
-	private void crearSala(List<Reserva> listaAux) {
-		
-		
-		
-		panel_3AbajoDetalle.removeAll();
-		System.out.println("Aqui si entras no?");
-		
-		for (int i = 0; i < 40; i++) {
-			//Reserva sillon = new Reserva(1,i, "1", "1", "1", 0, 1, true);
-			Reserva sillon = listas.crearSillon(i);
-			listaAux.add(sillon);
-			int posicion=i;
-			
-			
-			sillon.getBoton().addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent arg0) {
-					System.out.println("Tamaño lista aux "+listaAux.size());
-					//hay que llamar a una funcion con el objeto listas
-					System.out.println("Posicion = "+posicion);
-					InicioCineVentanas.listas.pintarAsiento(listaAux,posicion);
-					//listas.pintarAsiento(sillonAux);
-					
-					System.out.println(listaAux);
-					
-					
-					
-				}
-			});
-			
-			/*listaReservas.add(sillon);
-			listaReservas1.add(sillon);
-			listaReservas2.add(sillon);
-			listaReservas3.add(sillon);
-			listaReservas4.add(sillon);
-			listaReservas5.add(sillon);*/
-			
-			//para añadir asientos inicialmente
-			/*panel_3AbajoDetalle.add(sillon.getBoton());
-			if (i == 3 || i == 11 || i == 19 || i == 27 || i == 35) {
-				JLabel label = new JLabel("");
-				panel_3AbajoDetalle.add(label);
-				
-			}*/
-			//System.out.println(listaAux.get(i));
-		}
-		//repintar
-		panel_3AbajoDetalle.repaint();
-		frame.repaint();
-		frame.revalidate();
-	}
 	
 	//PINTAR SALA
 		private  void pintarSala(List<Reserva> listaSillonFinal) {
@@ -508,30 +415,13 @@ class InicioCineVentanas extends Thread{
 				
 			//Reserva sillonAux = listaSillonFinal.get(i);
 			
-			panel_3AbajoDetalle.add(listaSillonFinal.get(i).getBoton());
-			if (i == 3 || i == 11 || i == 19 || i == 27 || i == 35) {
-				JLabel label = new JLabel("");
-				panel_3AbajoDetalle.add(label);
-			}
-			
-			/*sillonAux.getBoton().addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent arg0) {
-					System.out.println("hola");
-					if (sillonAux.isReserva()) {
-						System.out.println("PINTA");
-						sillonAux.getBoton().setIcon(
-								new ImageIcon(panelPelicula.class.getResource("/imagenesAsientos/ocupado16.png")));
-						sillonAux.setReserva(false);
-					} else {
-						System.out.println("PINTA");
-						sillonAux.getBoton().setIcon(
-								new ImageIcon(panelPelicula.class.getResource("/imagenesAsientos/libre16.png")));
-						sillonAux.setReserva(true);
-					}
-					System.out.println(listaSillonFinal);
+				panel_3AbajoDetalle.add(listaSillonFinal.get(i).getBoton());
+				if (i == 3 || i == 11 || i == 19 || i == 27 || i == 35) {
+					JLabel label = new JLabel("");
+					panel_3AbajoDetalle.add(label);
 				}
-			});*/
+			
+			
 			}
 			panel_3AbajoDetalle.repaint();
 			frame.repaint();
