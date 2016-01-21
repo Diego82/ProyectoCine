@@ -36,6 +36,7 @@ public class InicioCine {
 		// TODO Auto-generated method stub
 		ListasCine listas = new ListasCine();
 		System.out.println("Empezando hilos");
+		System.out.println("Empezando hilos");
 		
 		Thread hilo1 = new Interfaz(listas);
 		Thread hilo2 = new Interfaz(listas);
