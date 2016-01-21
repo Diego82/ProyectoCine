@@ -23,26 +23,37 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Canvas;
 
-public class Interfaz extends Thread{
-
-	private JFrame frame;
+class Interfaz extends Thread{
+	
+	static ListasCine listas;
+	JFrame frame = new JFrame();
 	static Pelicula pelicula;
-
+	
+	public Interfaz(ListasCine listas){
+		this.listas = listas;
+		System.out.println("Esto sale ahora");
+	}
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Interfaz window = new Interfaz();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	@Override
+	public void run() {
+		try {
+			Interfaz window = new Interfaz();
+			window.frame.setVisible(true);
+			/*listas.listaReservas1 = this.listaReservas1Aux;
+			listas.listaReservas2 = this.listaReservas2Aux;
+			listas.listaReservas3 = this.listaReservas3Aux;
+			listas.listaReservas4 = this.listaReservas4Aux;
+			listas.listaReservas5 = this.listaReservas5Aux;*/
+			
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -66,14 +77,13 @@ public class Interfaz extends Thread{
 		botonApellidosCatalanes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//panelPelicula.main(null);
-				  new InicioCine().main(null);
+				
 				pelicula= new Pelicula(1, "OCHO APELLIDOS CATALANES", 
 						"Las alarmas de Koldo (Karra Elejalde) se encienden cuando se entera de que su hija Amaia ", 
 						"/imagenes/ApellidosCatalanes.PNG");
-				
-				/*System.out.println("Empezando hilos");
-				Thread hilo1 = new InicioCineVentanas(listas);
-				 */
+
+				Thread hilo1 = new InicioCineVentanas1(listas);
+				hilo1.start();
 				frame.dispose();
 
 			}
@@ -85,10 +95,10 @@ public class Interfaz extends Thread{
 		JButton botonSinsajo = new JButton("");
 		botonSinsajo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//panelPelicula_NoSeUsa.main(null);
-				new InicioCine().main(null);
+				//panelPelicula.main(null);
 				pelicula= new Pelicula(2, "SINSAJO PARTE 2", "222", "/imagenes/Sinsajo.PNG");
-			
+				Thread hilo1 = new InicioCineVentanas2(listas);
+				hilo1.start();
 				
 				frame.dispose();
 			}
@@ -98,10 +108,10 @@ public class Interfaz extends Thread{
 		JButton botonStarWars = new JButton("");
 		botonStarWars.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//panelPelicula_NoSeUsa.main(null);
-				new InicioCine().main(null);
+				//panelPelicula.main(null);
 				pelicula= new Pelicula(3, "STAR WARS EPIDOSIO VII", "3333", "/imagenes/StarWars.PNG");
-			
+				Thread hilo1 = new InicioCineVentanas3(listas);
+				hilo1.start();
 				
 				frame.dispose();
 			}
@@ -112,10 +122,10 @@ public class Interfaz extends Thread{
 		botonHotel.setBackground(Color.decode("#27364A"));
 		botonHotel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//panelPelicula_NoSeUsa.main(null);
-				new InicioCine().main(null);
+				//panelPelicula.main(null);
 				pelicula= new Pelicula(5, "HOTEL TRANSILVANIA", "4444", "/imagenes/hotel.PNG");
-			
+				Thread hilo1 = new InicioCineVentanas4(listas);
+				hilo1.start();
 				
 				frame.dispose();
 			}
@@ -125,10 +135,10 @@ public class Interfaz extends Thread{
 		JButton botonArlo = new JButton("");
 		botonArlo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//panelPelicula_NoSeUsa.main(null);
-				new InicioCine().main(null);
+				//panelPelicula.main(null);
 				pelicula= new Pelicula(4, "EL VIAJE DE ARLO", "5555", "/imagenes/arlo.PNG");
-			
+				Thread hilo1 = new InicioCineVentanas5(listas);
+				hilo1.start();
 				
 				frame.dispose();
 			}
@@ -138,10 +148,10 @@ public class Interfaz extends Thread{
 		JButton botonKrampus = new JButton("");
 		botonKrampus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//panelPelicula_NoSeUsa.main(null);
-				new InicioCine().main(null);
+				//panelPelicula.main(null);
 				pelicula= new Pelicula(6, "KRAMPUS MALDITA NAVIDAD", "5555", "/imagenes/krampus.PNG");
-			
+				Thread hilo1 = new InicioCineVentanas6(listas);
+				hilo1.start();
 				
 				frame.dispose();
 				
@@ -152,10 +162,10 @@ public class Interfaz extends Thread{
 		JButton botonPuente = new JButton("");
 		botonPuente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//panelPelicula_NoSeUsa.main(null);
-				new InicioCine().main(null);
+				//panelPelicula.main(null);
 				pelicula= new Pelicula(7, "EL PUENTE DE LOS ESPIAS", "5555", "/imagenes/puente.PNG");
-			
+				Thread hilo1 = new InicioCineVentanas7(listas);
+				hilo1.start();
 				
 				frame.dispose();
 			}
@@ -165,10 +175,10 @@ public class Interfaz extends Thread{
 		JButton botonSicario = new JButton("");
 		botonSicario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//panelPelicula_NoSeUsa.main(null);
-				new InicioCine().main(null);
+				//panelPelicula.main(null);
 				pelicula= new Pelicula(8, "SICARIO", "5555", "/imagenes/sicario.PNG");
-			
+				Thread hilo1 = new InicioCineVentanas8(listas);
+				hilo1.start();
 				
 				frame.dispose();
 			}
