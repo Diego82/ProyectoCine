@@ -32,6 +32,7 @@ import java.awt.GridLayout;
 
 public class panelPelicula_NoSeUsa {
 //no valeee
+	/*
 	private JFrame frame = new JFrame();
 	JPanel panel_3AbajoDetalle = new JPanel();
 	JPanel panel_2ArribaDetalle = new JPanel();
@@ -91,11 +92,7 @@ public class panelPelicula_NoSeUsa {
 				}
 			});
 
-			/*
-			 * listaReservas.add(sillon); listaReservas1.add(sillon);
-			 * listaReservas2.add(sillon); listaReservas3.add(sillon);
-			 * listaReservas4.add(sillon); listaReservas5.add(sillon);
-			 */
+			
 			panel_3AbajoDetalle.add(sillon.getBoton());
 			if (i == 3 || i == 11 || i == 19 || i == 27 || i == 35) {
 				JLabel label = new JLabel("");
@@ -123,20 +120,7 @@ public class panelPelicula_NoSeUsa {
 				panel_3AbajoDetalle.add(label);
 			}
 
-			/*
-			 * sillonAux.getBoton().addActionListener(new ActionListener() {
-			 * 
-			 * @Override public void actionPerformed(ActionEvent arg0) {
-			 * System.out.println("hola"); if (sillonAux.isReserva()) {
-			 * System.out.println("PINTA"); sillonAux.getBoton().setIcon( new
-			 * ImageIcon(panelPelicula.class.getResource(
-			 * "/imagenesAsientos/ocupado16.png")));
-			 * sillonAux.setReserva(false); } else {
-			 * System.out.println("PINTA"); sillonAux.getBoton().setIcon( new
-			 * ImageIcon(panelPelicula.class.getResource(
-			 * "/imagenesAsientos/libre16.png"))); sillonAux.setReserva(true); }
-			 * System.out.println(listaSillonFinal); } });
-			 */
+			
 		}
 		panel_3AbajoDetalle.repaint();
 		frame.repaint();
@@ -156,12 +140,7 @@ public class panelPelicula_NoSeUsa {
 			RBoton.setFont(new Font("Tahoma", Font.BOLD, 13));
 			RBoton.setBackground(new Color(23, 32, 44));
 
-			// arreglar esto
-			/*
-			 * Reserva hora=new Reserva(i,i, "1", horasArray[i], "1", 0, 1,
-			 * true); grupoRadioBotones.add(hora.getRadioBoton());
-			 * hora.getRadioBoton().setText(horasArray[i]);
-			 */
+			
 
 			grupoRadioBotones.add(RBoton);
 			panel_2ArribaDetalle.add(RBoton);
@@ -213,9 +192,6 @@ public class panelPelicula_NoSeUsa {
 
 	}
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -229,16 +205,12 @@ public class panelPelicula_NoSeUsa {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	/
 	public panelPelicula_NoSeUsa() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize() {
 		frame.setBackground(Color.decode("#27364A"));
 		frame.setResizable(false);
@@ -406,4 +378,5 @@ public class panelPelicula_NoSeUsa {
 		panel_1.setLayout(gl_panel_1);
 		frame.getContentPane().setLayout(groupLayout);
 	}
+	*/
 }
