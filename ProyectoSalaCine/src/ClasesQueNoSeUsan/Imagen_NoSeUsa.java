@@ -1,13 +1,13 @@
-package salacine;
+package ClasesQueNoSeUsan;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
 
-public class Imagen extends javax.swing.JPanel {
+public class Imagen_NoSeUsa extends javax.swing.JPanel {
 
-	public Imagen() {
+	public Imagen_NoSeUsa() {
 		this.setSize(541, 524); // se selecciona el tamaño del panel
 	}
 

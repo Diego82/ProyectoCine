@@ -1,10 +1,12 @@
-package salacine;
+package ClasesQueNoSeUsan;
 
 import java.awt.EventQueue;
 
 import clases.ListadoPeliculas;
 import clases.Pelicula;
 import clases.Reserva;
+import salacine.Interfaz;
+
 import javax.swing.JFrame;
 import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
