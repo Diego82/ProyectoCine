@@ -9,10 +9,13 @@ import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Color;
+import java.awt.EventQueue;
+
 import javax.swing.JSplitPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ImageIcon;
 import java.awt.Font;
@@ -31,9 +34,9 @@ import java.awt.Toolkit;
 
 
 public class InicioCine {
-
+	
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		ListasCine listas = new ListasCine();
 		System.out.println("Empezando hilos");
 		Thread hilo1 = new InicioCineVentanas(listas);
@@ -44,14 +47,22 @@ public class InicioCine {
 		hilo2.start();
 		System.out.println("Hilos arrancados");
 		
-		try {
-			
-			System.out.println("Hacemos el join");
-			hilo1.join();hilo2.join();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ListasCine window = new ListasCine();
+					//window.frame.setVisible(true);
+					System.out.println("Hacemos el join");
+					hilo1.join();hilo2.join();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		// TODO Auto-generated method stub
+		
+		
 		
 		System.out.println(listas);
 	}
@@ -63,6 +74,13 @@ class ListasCine{
 	//asi no se sincroniza
 	//private List<Integer> listar = new ArrayList<Integer>();
 	//asi si : 
+	
+	//para decir cuales estan reservados
+	static List<Reserva>  listaReservaFinal  =  Collections.synchronizedList(new ArrayList<Reserva>());// Esta lista nos 
+																			//mostrara los asientos 
+																			//que hemos reservado
+	
+	
 	
 	JPanel panel_3AbajoDetalle = new JPanel();
 	JPanel panel_2ArribaDetalle = new JPanel();
@@ -380,6 +398,8 @@ class InicioCineVentanas extends Thread{
 		btnNewButton_1.setBorder(null);
 
 		btnNewButton_1.setIcon(new ImageIcon(InicioCine.class.getResource("/imagenesAsientos/libre16.png")));
+		
+
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1
 				.setHorizontalGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)

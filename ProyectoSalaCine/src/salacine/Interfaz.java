@@ -23,7 +23,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Canvas;
 
-public class Interfaz {
+public class Interfaz extends Thread{
 
 	private JFrame frame;
 	static Pelicula pelicula;
@@ -65,11 +65,15 @@ public class Interfaz {
 		JButton botonApellidosCatalanes = new JButton("");
 		botonApellidosCatalanes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				panelPelicula.main(null);
+				//panelPelicula.main(null);
+				  new InicioCine().main(null);
 				pelicula= new Pelicula(1, "OCHO APELLIDOS CATALANES", 
 						"Las alarmas de Koldo (Karra Elejalde) se encienden cuando se entera de que su hija Amaia ", 
 						"/imagenes/ApellidosCatalanes.PNG");
-
+				
+				/*System.out.println("Empezando hilos");
+				Thread hilo1 = new InicioCineVentanas(listas);
+				 */
 				frame.dispose();
 
 			}
@@ -81,7 +85,7 @@ public class Interfaz {
 		JButton botonSinsajo = new JButton("");
 		botonSinsajo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelPelicula.main(null);
+				panelPelicula_NoSeUsa.main(null);
 				pelicula= new Pelicula(2, "SINSAJO PARTE 2", "222", "/imagenes/Sinsajo.PNG");
 			
 				
@@ -93,7 +97,7 @@ public class Interfaz {
 		JButton botonStarWars = new JButton("");
 		botonStarWars.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelPelicula.main(null);
+				panelPelicula_NoSeUsa.main(null);
 				pelicula= new Pelicula(3, "STAR WARS EPIDOSIO VII", "3333", "/imagenes/StarWars.PNG");
 			
 				
@@ -106,7 +110,7 @@ public class Interfaz {
 		botonHotel.setBackground(Color.decode("#27364A"));
 		botonHotel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelPelicula.main(null);
+				panelPelicula_NoSeUsa.main(null);
 				pelicula= new Pelicula(5, "HOTEL TRANSILVANIA", "4444", "/imagenes/hotel.PNG");
 			
 				
@@ -118,7 +122,7 @@ public class Interfaz {
 		JButton botonArlo = new JButton("");
 		botonArlo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelPelicula.main(null);
+				panelPelicula_NoSeUsa.main(null);
 				pelicula= new Pelicula(4, "EL VIAJE DE ARLO", "5555", "/imagenes/arlo.PNG");
 			
 				
@@ -130,7 +134,7 @@ public class Interfaz {
 		JButton botonKrampus = new JButton("");
 		botonKrampus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelPelicula.main(null);
+				panelPelicula_NoSeUsa.main(null);
 				pelicula= new Pelicula(6, "KRAMPUS MALDITA NAVIDAD", "5555", "/imagenes/krampus.PNG");
 			
 				
@@ -143,7 +147,7 @@ public class Interfaz {
 		JButton botonPuente = new JButton("");
 		botonPuente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelPelicula.main(null);
+				panelPelicula_NoSeUsa.main(null);
 				pelicula= new Pelicula(7, "EL PUENTE DE LOS ESPIAS", "5555", "/imagenes/puente.PNG");
 			
 				
@@ -155,7 +159,7 @@ public class Interfaz {
 		JButton botonSicario = new JButton("");
 		botonSicario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelPelicula.main(null);
+				panelPelicula_NoSeUsa.main(null);
 				pelicula= new Pelicula(8, "SICARIO", "5555", "/imagenes/sicario.PNG");
 			
 				

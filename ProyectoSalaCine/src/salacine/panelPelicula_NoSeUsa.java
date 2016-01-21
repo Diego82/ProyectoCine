@@ -28,8 +28,8 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
 
-public class panelPelicula {
-
+public class panelPelicula_NoSeUsa {
+//no valeee
 	private JFrame frame = new JFrame();
 	JPanel panel_3AbajoDetalle = new JPanel();
 	JPanel panel_2ArribaDetalle = new JPanel();
@@ -68,7 +68,7 @@ public class panelPelicula {
 					if (sillonAux.isReserva()) {
 						System.out.println("PINTA");
 						sillonAux.getBoton().setIcon(
-								new ImageIcon(panelPelicula.class.getResource("/imagenesAsientos/ocupado16.png")));
+								new ImageIcon(panelPelicula_NoSeUsa.class.getResource("/imagenesAsientos/ocupado16.png")));
 						sillonAux.setReserva(false);
 						//sillonAux.setSala(Interfaz.pelicula.getTitulo());
 						
@@ -77,7 +77,7 @@ public class panelPelicula {
 					} else {
 						System.out.println("PINTA");
 						sillonAux.getBoton().setIcon(
-								new ImageIcon(panelPelicula.class.getResource("/imagenesAsientos/libre16.png")));
+								new ImageIcon(panelPelicula_NoSeUsa.class.getResource("/imagenesAsientos/libre16.png")));
 						sillonAux.setReserva(true);
 						listaReservaFinal.remove(sillonAux);
 					}
@@ -218,7 +218,7 @@ public class panelPelicula {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					panelPelicula window = new panelPelicula();
+					panelPelicula_NoSeUsa window = new panelPelicula_NoSeUsa();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -230,7 +230,7 @@ public class panelPelicula {
 	/**
 	 * Create the application.
 	 */
-	public panelPelicula() {
+	public panelPelicula_NoSeUsa() {
 		initialize();
 	}
 
@@ -328,7 +328,7 @@ public class panelPelicula {
 		splitPane.setLeftComponent(panel_1);
 
 		JLabel etiquetaImagen = new JLabel("");
-		etiquetaImagen.setIcon(new ImageIcon(panelPelicula.class.getResource(Interfaz.pelicula.getImagenCartel())));
+		etiquetaImagen.setIcon(new ImageIcon(panelPelicula_NoSeUsa.class.getResource(Interfaz.pelicula.getImagenCartel())));
 
 		JLabel etiquetaTitulo = new JLabel(Interfaz.pelicula.getTitulo());
 		etiquetaTitulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -346,7 +346,7 @@ public class panelPelicula {
 		btnNewButton_1.setBorderPainted(false);
 		btnNewButton_1.setBorder(null);
 
-		btnNewButton_1.setIcon(new ImageIcon(panelPelicula.class.getResource("/imagenesAsientos/libre16.png")));
+		btnNewButton_1.setIcon(new ImageIcon(panelPelicula_NoSeUsa.class.getResource("/imagenesAsientos/libre16.png")));
 		// volver a la ventana principal
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {

@@ -2,7 +2,7 @@ package clases;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import salacine.panelPelicula;
+import salacine.panelPelicula_NoSeUsa;
 
 public class Reserva {
 
@@ -37,7 +37,7 @@ public class Reserva {
 		this.columna = columna;
 		this.reserva = reserva;
 		boton=new JButton("");
-		boton.setIcon(new ImageIcon(panelPelicula.class.getResource("/imagenesAsientos/libre16.png")));
+		boton.setIcon(new ImageIcon(panelPelicula_NoSeUsa.class.getResource("/imagenesAsientos/libre16.png")));
 		boton.setOpaque(false);
 		boton.setContentAreaFilled(false);
 		boton.setBorderPainted(false);
