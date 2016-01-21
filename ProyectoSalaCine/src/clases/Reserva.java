@@ -3,7 +3,7 @@ package clases;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import ClasesQueNoSeUsan.panelPelicula_NoSeUsa;
+import salacine.panelPelicula_NoSeUsa;
 
 public class Reserva {
 

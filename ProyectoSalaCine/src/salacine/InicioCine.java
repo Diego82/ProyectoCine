@@ -17,9 +17,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
-
-import ClasesQueNoSeUsan.panelPelicula_NoSeUsa;
-
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.SwingConstants;

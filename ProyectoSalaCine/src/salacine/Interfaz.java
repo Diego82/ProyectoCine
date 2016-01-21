@@ -17,9 +17,6 @@ import clases.Pelicula;
 
 import java.awt.Font;
 import javax.swing.LayoutStyle.ComponentPlacement;
-
-import ClasesQueNoSeUsan.panelPelicula_NoSeUsa;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
