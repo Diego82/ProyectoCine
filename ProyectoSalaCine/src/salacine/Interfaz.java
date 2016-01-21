@@ -85,7 +85,8 @@ public class Interfaz extends Thread{
 		JButton botonSinsajo = new JButton("");
 		botonSinsajo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelPelicula_NoSeUsa.main(null);
+				//panelPelicula_NoSeUsa.main(null);
+				new InicioCine().main(null);
 				pelicula= new Pelicula(2, "SINSAJO PARTE 2", "222", "/imagenes/Sinsajo.PNG");
 			
 				
@@ -97,7 +98,8 @@ public class Interfaz extends Thread{
 		JButton botonStarWars = new JButton("");
 		botonStarWars.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelPelicula_NoSeUsa.main(null);
+				//panelPelicula_NoSeUsa.main(null);
+				new InicioCine().main(null);
 				pelicula= new Pelicula(3, "STAR WARS EPIDOSIO VII", "3333", "/imagenes/StarWars.PNG");
 			
 				
@@ -110,7 +112,8 @@ public class Interfaz extends Thread{
 		botonHotel.setBackground(Color.decode("#27364A"));
 		botonHotel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelPelicula_NoSeUsa.main(null);
+				//panelPelicula_NoSeUsa.main(null);
+				new InicioCine().main(null);
 				pelicula= new Pelicula(5, "HOTEL TRANSILVANIA", "4444", "/imagenes/hotel.PNG");
 			
 				
@@ -122,7 +125,8 @@ public class Interfaz extends Thread{
 		JButton botonArlo = new JButton("");
 		botonArlo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelPelicula_NoSeUsa.main(null);
+				//panelPelicula_NoSeUsa.main(null);
+				new InicioCine().main(null);
 				pelicula= new Pelicula(4, "EL VIAJE DE ARLO", "5555", "/imagenes/arlo.PNG");
 			
 				
@@ -134,7 +138,8 @@ public class Interfaz extends Thread{
 		JButton botonKrampus = new JButton("");
 		botonKrampus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelPelicula_NoSeUsa.main(null);
+				//panelPelicula_NoSeUsa.main(null);
+				new InicioCine().main(null);
 				pelicula= new Pelicula(6, "KRAMPUS MALDITA NAVIDAD", "5555", "/imagenes/krampus.PNG");
 			
 				
@@ -147,7 +152,8 @@ public class Interfaz extends Thread{
 		JButton botonPuente = new JButton("");
 		botonPuente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelPelicula_NoSeUsa.main(null);
+				//panelPelicula_NoSeUsa.main(null);
+				new InicioCine().main(null);
 				pelicula= new Pelicula(7, "EL PUENTE DE LOS ESPIAS", "5555", "/imagenes/puente.PNG");
 			
 				
@@ -159,7 +165,8 @@ public class Interfaz extends Thread{
 		JButton botonSicario = new JButton("");
 		botonSicario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelPelicula_NoSeUsa.main(null);
+				//panelPelicula_NoSeUsa.main(null);
+				new InicioCine().main(null);
 				pelicula= new Pelicula(8, "SICARIO", "5555", "/imagenes/sicario.PNG");
 			
 				
